@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>聯合醫院 progress lab ++</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Captive Portal styles -->
+	<!--link rel="stylesheet" type="text/css" href="/captive_portal.css" /-->
+	<!-- Vendor javascripts -->
+	<script type="text/javascript" src="/vendor/js/angular.min.js"></script>
+	<script type="text/javascript" src="/vendor/js/ng-file-upload.min.js"></script>
+	<!-- Captive Portal javascripts -->
+	<script type="text/javascript" src="/tpechLab.js"></script>
+</head>
+<body class="account-body">
+	<div class="main-dialog" ng-app="TpechLab" ng-controller="TpechLabCtrl">
+		<div class="form-wrapper">
+			date<input type="date" ng-model="date" name="date"/>
+			<label>顯示所有欄位:
+				<input type="checkbox" ng-model="showAll" name="showAll">
+			</label><br>
+		    <textarea ng-model="labInput" name="LabInput" rows="20" cols="81"></textarea>
+			<button class="main-btn" ng-click="onCleanAll()" ng-hide="processing">clean</button><br>
+		    <textarea ng-model="labOutput" name="LabOutput" rows="8" cols="81"></textarea>
+			<a href="https://hanschang.org/lab3.html">「多筆報告」帶入資料</a>
+		</div>
+	</div>
+</body>
+</html>
