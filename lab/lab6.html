@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>LAB++ 聯合醫院</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Vendor javascripts -->
+	<script type="text/javascript" src="/vendor/js/angular.min.js"></script>
+	<script type="text/javascript" src="/vendor/js/ng-file-upload.min.js"></script>
+	<script type="text/javascript" src="/lab/lab6.js"></script>
+</head>
+<body class="account-body">
+	<div class="main-dialog" ng-app="TpechLab" ng-controller="TpechLabCtrl">
+		<div class="form-wrapper">
+			<label>不區分報告類別:
+				<input type="checkbox" ng-model="ignoreReportClass" name="ignoreReportClass">
+			</label>
+			<label>隱藏不常用血液欄位:
+				<input type="checkbox" ng-model="hideBlood" name="hideBlood">
+			</label>
+			<label>隱藏不常用生化欄位:
+				<input type="checkbox" ng-model="hideChemo" name="hideChemo">
+			</label><br>
+		    <textarea ng-model="labInput" name="LabInput" rows="12" cols="81"></textarea>
+			<button class="main-btn" ng-click="onCleanAll()" ng-hide="processing">clean</button><br>
+		    <textarea ng-model="labOutput" name="LabOutput" rows="16" cols="81"></textarea><br>
+
+			<div ng-repeat="(key, value) in hiddenList">隱藏{{ key }}：
+				<input type="checkbox" ng-model="hiddenReportClass[key]" ng-change="hiddenReportClassChange[key]()"><br>
+				<label ng-repeat="name in value.name track by $index">{{ name }}
+					<input type="checkbox" ng-model="value.hidden[$index]">.
+				</label><br><br>
+			</div>
+
+			<table ng-repeat="(key, value) in tableResults" border="1">
+				<caption>{{ key }}</caption>
+				<tr>
+					<th ng-repeat="itemName in value.heads track by $index">{{ itemName }}</th>
+				</tr>
+				<tr ng-repeat="result in value.results">
+					<th ng-repeat="cell in result track by $index">{{ cell }}</th>
+				</tr>
+			</table>
+			<a href="\lab\lab2.html">go to version 2019/01</a><br>
+			<a href="\lab\lab4.html">go to version 2019/02</a><br>
+			<a href="\lab\lab5.html">go to version 2019/03</a><br>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>LAB++ 聯合醫院</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--link rel="stylesheet" type="text/css" href="demo.css" /-->
+	<link rel="stylesheet" type="text/css" href="/lab/sortable.css">
+
+	<!-- Vendor javascripts -->
+	<script src="https://cdn.jsdelivr.net/g/jquery@1,jquery.ui@1.10%28jquery.ui.core.min.js+jquery.ui.widget.min.js+jquery.ui.mouse.min.js+jquery.ui.sortable.min.js%29,angularjs@1.2,angular.ui-sortable"></script>
+	<!-- javascripts -->
+	<script type="text/javascript" src="/lab/lab7.js"></script>
+</head>
+<body class="account-body">
+	<div class="main-dialog" ng-app="TpechLab">
+		<div class="form-wrapper" ng-controller="TpechLabCtrl">
+			<label>隱藏不常用血液欄位:
+				<input type="checkbox" ng-model="hideBlood" name="hideBlood">
+			</label>
+			<label>隱藏不常用生化欄位:
+				<input type="checkbox" ng-model="hideChemo" name="hideChemo">
+			</label><br>
+		    <textarea ng-model="labInput" name="LabInput" rows="12" cols="81"></textarea>
+			<button class="main-btn" ng-click="onCleanAll()" ng-hide="processing">clean</button><br>
+			<h1>2019/7月底進行伺服器搬遷<br></h1>
+			<h2>備用站(Google app engine):<a href="https://fiery-cistern-187215.appspot.com/lab3.html">https://fiery-cistern-187215.appspot.com/lab3.html</a></h2><br>
+		    <textarea ng-model="textField" name="textField" rows="16" cols="81"></textarea><br>
+
+			<table ng-repeat="tableField in tableFields track by $index" border="1">
+				<caption>{{ tableField.title }}</caption>
+				<tr ng-repeat="row in tableField.rows track by $index">
+					<th ng-repeat="cell in row track by $index">{{ cell }}</th>
+				</tr>
+			</table>
+			<h1>表格1 <input type="text" ng-model="table1.title"></h1>
+				<div class="section connectedTable1">
+					<div class="col-sm-offset-2 col-sm-4">
+						<ul ui-sortable="table1Options" ng-model="table1.unselected" class="left-col list">
+							<li ng-repeat="item in table1.unselected" class="item">{{item.text}}</li>
+						</ul>
+					</div>
+					<div class="mid-col"></div>
+					<div class="col-sm-4">
+						<ul ui-sortable="table1Options" ng-model="table1.selected" class="rigt-col list">
+							<li ng-repeat="item in table1.selected" class="item">{{item.text}}</li>
+						</ul>
+					</div>
+				</div>
+			<h1>表格2 <input type="text" ng-model="table2.title"></h1>
+				<div class="section connectedTable2">
+					<div class="col-sm-offset-2 col-sm-4">
+						<ul ui-sortable="table2Options" ng-model="table2.unselected" class="list">
+							<li ng-repeat="item in table2.unselected" class="item">{{item.text}}</li>
+						</ul>
+					</div>
+					<div class="col-sm-4">
+						<ul ui-sortable="table2Options" ng-model="table2.selected" class="list">
+							<li ng-repeat="item in table2.selected" class="item">{{item.text}}</li>
+						</ul>
+					</div>
+				</div>
+			<h1>表格3 <input type="text" ng-model="table3.title"></h1>
+				<div class="section connectedTable3">
+					<div class="col-sm-offset-2 col-sm-4">
+						<ul ui-sortable="table3Options" ng-model="table3.unselected" class="list">
+							<li ng-repeat="item in table3.unselected" class="item">{{item.text}}</li>
+						</ul>
+					</div>
+					<div class="col-sm-4">
+						<ul ui-sortable="table3Options" ng-model="table3.selected" class="list">
+							<li ng-repeat="item in table3.selected" class="item">{{item.text}}</li>
+						</ul>
+					</div>
+				</div>
+			<a href="\lab\lab2.html">go to version 2019/01</a><br>
+			<a href="\lab\lab4.html">go to version 2019/02</a><br>
+			<a href="\lab\lab5.html">go to version 2019/03</a><br>
+			<a href="\lab\lab6.html">go to version 2019/05</a><br>
+			version 2019/07 <a href="mailto:hanschang@hanschang.org">問題回報</a>
+		</div>
+	</div>
+</body>
+</html>
